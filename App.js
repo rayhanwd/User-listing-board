@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useEffect} from 'react';
+import {useState} from 'react';
+import {View, Text, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {Card, Button} from 'react-native-elements';
+const App = () => {
+  const [users, setUsers] = useState([]);
 
-export default function App() {
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <View>
+          <Text style={styles.text}>User List</Text>
+          {users.map(user => (
+            <Card>
+              <Card.Title>{user.name}</Card.Title>
+              <Text>{user.email}</Text>
+              <Text>{user.address.city}</Text>
+              <Button title="Read more" />
+            </Card>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  text: {
+    fontSize: 35,
+    textAlign: 'center',
   },
 });
+
+export default App;
+
