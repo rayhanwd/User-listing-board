@@ -17,9 +17,9 @@ const App = () => {
           <Text style={styles.text}>User List</Text>
           {users.map(user => (
             <Card>
-              <Card.Title>{user.name}</Card.Title>
-              <Text>{user.email}</Text>
-              <Text>{user.address.city}</Text>
+              <Card.Title>Name :{user.name}</Card.Title>
+              <Text>Email :{user.email}</Text>
+              <Text>City :{user.address.city}</Text>
               <Button title="Read more" />
             </Card>
           ))}
