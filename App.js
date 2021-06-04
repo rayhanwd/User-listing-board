@@ -45,10 +45,10 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 35,
-    textAlign: 'center',
-  },
+  // text: {
+  //   fontSize: 35,
+  //   textAlign: 'center',
+  // },
   cardStyle: {
     borderRadius: 10,
     margin: 15,
@@ -59,18 +59,21 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   email: {
     color: '#336633',
     fontSize: 20,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    textAlign: 'center',
   },
   address: {
     fontSize: 18,
     fontStyle: 'italic', 
-    paddingBottom: 20
+    paddingBottom: 20,
+    textAlign: 'center',
   },
   container: {
     flex: 1,
