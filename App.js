@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {useState} from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground, ActivityIndicator } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {Card, Button, Header} from 'react-native-elements';
+import { Card, Button, Header } from 'react-native-elements';
 const App = () => {
   const [users, setUsers] = useState([]);
   const image = { uri: "https://wallpaperaccess.com/full/2848838.jpg" };
@@ -11,14 +11,14 @@ const App = () => {
       .then(res => res.json())
       .then(data => setUsers(data));
   }, []);
-  if(users.length === 0) return <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
+  if (users.length === 0) return <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
   return (
     <SafeAreaProvider>
       <ScrollView>
         <View>
           <Header
             leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ text: 'User List', style: { color: '#fff', fontSize: 30, fontWeight: 'bold'} }}
+            centerComponent={{ text: 'User List', style: { color: '#fff', fontSize: 30, fontWeight: 'bold' } }}
             rightComponent={{ icon: 'home', color: '#fff' }}
             containerStyle={{
               backgroundColor: 'orangered',
@@ -27,17 +27,18 @@ const App = () => {
               paddingBottom: 15
             }}
           />
-          
+
           {users.map((user, index) => (
-            <View style={ styles.cardStyle} key={index}>
-              <ImageBackground source={image} style={{width: 'auto', height: 'auto', padding: 10}}>
-              <Card.Title style={ styles.title}>{user.name}</Card.Title>
-              <Text style={ styles.email}>Email: {user.email}</Text>
-              <Text style={ styles.address}>Address: {user.address.street}, {user.address.city}</Text>
-              <Button title="Read more"/>
+            <View style={styles.cardStyle} key={index}>
+              <ImageBackground source={image} style={{ width: 'auto', height: 'auto', padding: 10 }}>
+                <Card.Title style={styles.title}>{user.name}</Card.Title>
+                <Text style={styles.email}>Email: {user.email}</Text>
+                <Text style={styles.address}>Address: {user.address.street}, {user.address.city}</Text>
+                <Button title="Read more" />
               </ImageBackground>
-              </View>
+            </View>
           ))}
+          <Text style={styles.footer}>&copy; Copyright 2021</Text>
         </View>
       </ScrollView>
     </SafeAreaProvider>
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   },
   address: {
     fontSize: 18,
-    fontStyle: 'italic', 
+    fontStyle: 'italic',
     paddingBottom: 20,
     textAlign: 'center',
   },
@@ -83,6 +84,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10
+  },
+  footer: {
+    color: '#336633',
+    fontSize: 15,
+    fontWeight: '600',
+    paddingTop: 10,
+    paddingBottom: 10,
+    textAlign: 'center',
   }
 });
 
