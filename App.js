@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   address: {
     fontSize: 18,
-    fontStyle: 'italic',git 
+    fontStyle: 'italic', 
     paddingBottom: 20
   },
   container: {
