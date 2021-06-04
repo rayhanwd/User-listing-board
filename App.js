@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from 'react';
-import {View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground, ActivityIndicator} from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground, ActivityIndicator } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Card, Button, Header} from 'react-native-elements';
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ const App = () => {
   }, []);
   if(users.length === 0) return <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
   return (
-    <SafeAreaView>
+    <SafeAreaProvider>
       <ScrollView>
         <View>
           <Header
@@ -39,7 +40,7 @@ const App = () => {
           ))}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
