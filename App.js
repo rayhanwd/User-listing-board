@@ -1,13 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from 'react';
-<<<<<<< HEAD
-import {View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground} from 'react-native';
+import {View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground, ActivityIndicator} from 'react-native';
 import {Card, Button, Header} from 'react-native-elements';
-=======
-import {View, Text, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import {Card, Button} from 'react-native-elements';
-import Navigationbar from './Navigationbar';
->>>>>>> 46019f2537c5917bd12941e558d4f87a84cff42c
 const App = () => {
   const [users, setUsers] = useState([]);
   const image = { uri: "https://wallpaperaccess.com/full/2848838.jpg" };
@@ -16,10 +10,10 @@ const App = () => {
       .then(res => res.json())
       .then(data => setUsers(data));
   }, []);
+  if(users.length === 0) return <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
   return (
     <SafeAreaView>
       <ScrollView>
-        <Navigationbar></Navigationbar>
         <View>
           <Header
             leftComponent={{ icon: 'menu', color: '#fff' }}
@@ -32,6 +26,7 @@ const App = () => {
               paddingBottom: 15
             }}
           />
+          
           {users.map((user, index) => (
             <View style={ styles.cardStyle} key={index}>
               <ImageBackground source={image} style={{width: 'auto', height: 'auto', padding: 10}}>
@@ -73,8 +68,17 @@ const styles = StyleSheet.create({
   },
   address: {
     fontSize: 18,
-    fontStyle: 'italic',
+    fontStyle: 'italic',git 
     paddingBottom: 20
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
   }
 });
 
