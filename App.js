@@ -1,7 +1,13 @@
 import React, {useEffect} from 'react';
 import {useState} from 'react';
+<<<<<<< HEAD
 import {View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground} from 'react-native';
 import {Card, Button, Header} from 'react-native-elements';
+=======
+import {View, Text, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {Card, Button} from 'react-native-elements';
+import Navigationbar from './Navigationbar';
+>>>>>>> 46019f2537c5917bd12941e558d4f87a84cff42c
 const App = () => {
   const [users, setUsers] = useState([]);
   const image = { uri: "https://wallpaperaccess.com/full/2848838.jpg" };
@@ -13,6 +19,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <ScrollView>
+        <Navigationbar></Navigationbar>
         <View>
           <Header
             leftComponent={{ icon: 'menu', color: '#fff' }}
