@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useState} from 'react';
 import {View, Text, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {Card, Button} from 'react-native-elements';
+import Navigationbar from './Navigationbar';
 const App = () => {
   const [users, setUsers] = useState([]);
 
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <ScrollView>
+        <Navigationbar></Navigationbar>
         <View>
           <Text style={styles.text}>User List</Text>
           {users.map(user => (
